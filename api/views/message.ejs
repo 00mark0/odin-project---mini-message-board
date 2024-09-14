@@ -12,7 +12,8 @@
     <div><strong>Message:</strong> <%= message.message %></div>
     <div>
       <strong>Created at:</strong> <%= new
-      Date(message.createdAt).toLocaleString() %>
+      Date(message.createdAt).toLocaleString('en-US', { timeZone:
+      'Europe/Belgrade' }) %>
     </div>
     <a href="/">Back to Home</a>
   </body>

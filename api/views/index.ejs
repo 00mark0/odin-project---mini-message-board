@@ -11,10 +11,11 @@
     <a href="/messages/new">New Message</a>
     <ul>
       <% messages.forEach((msg) => { %>
-      <li class="message">
+      <li>
         <strong><%= msg.author %>:</strong> <%= msg.message %>
-        <div style="margin-top: 5px">
-          Created at: <%= new Date(msg.createdAt).toLocaleString() %>
+        <div>
+          Created at: <%= new Date(msg.createdAt).toLocaleString('en-US', {
+          timeZone: 'Europe/Belgrade' }) %>
         </div>
         <a href="/messages/<%= msg._id %>">Open Message</a>
         <button onclick="deleteMessage('<%= msg._id %>')">Delete</button>

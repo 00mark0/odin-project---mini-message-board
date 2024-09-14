@@ -10,6 +10,18 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8800;
+const mongoURI = process.env.MONGO;
+
+console.log("Environment Variables:");
+console.log("MONGO:", mongoURI);
+console.log("PORT:", port);
+
+if (!mongoURI) {
+  console.error(
+    "MongoDB connection URI is not defined. Please set the MONGO environment variable."
+  );
+  process.exit(1);
+}
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,9 +29,10 @@ app.use(express.static("public"));
 
 const connect = async () => {
   try {
-    await mongoose.connect(process.env.MONGO);
+    await mongoose.connect(mongoURI);
     console.log("Connected to MongoDB");
   } catch (error) {
+    console.error("MongoDB connection error:", error);
     throw error;
   }
 };

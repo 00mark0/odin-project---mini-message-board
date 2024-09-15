@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Edit Message</title>
+  </head>
+  <body>
+    <h1>Edit Message</h1>
+    <form action="/messages/<%= message._id %>/edit" method="POST">
+      <div>
+        <label for="author">Author:</label>
+        <input
+          type="text"
+          id="author"
+          name="author"
+          value="<%= message.author %>"
+          required
+        />
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required>
+<%= message.message %></textarea
+        >
+      </div>
+      <button type="submit">Save Changes</button>
+    </form>
+    <a href="/">Back to Home</a>
+  </body>
+</html>

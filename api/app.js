@@ -2,9 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import methodOverride from "method-override";
 
 import indexRouter from "./routes/index.js";
-import messagesRouter from "./routes/messages.js"; // Ensure this path is correct
+import messagesRouter from "./routes/messages.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ if (!mongoURI) {
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 const connect = async () => {
   try {

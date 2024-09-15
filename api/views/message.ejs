@@ -15,6 +15,14 @@
       Date(message.createdAt).toLocaleString('en-US', { timeZone:
       'Europe/Belgrade' }) %>
     </div>
+    <% if (message.editedAt && message.editedAt !== null) { %>
+    <div>
+      <strong>Edited at:</strong> <%= new
+      Date(message.editedAt).toLocaleString('en-US', { timeZone:
+      'Europe/Belgrade' }) %>
+    </div>
+    <% } %>
     <a href="/">Back to Home</a>
+    <a href="/messages/<%= message._id %>/edit">Edit</a>
   </body>
 </html>

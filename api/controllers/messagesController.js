@@ -27,3 +27,29 @@ export const viewMessage = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+export const renderEditMessageForm = async (req, res) => {
+  try {
+    const message = await Message.findById(req.params.id);
+    res.render("edit", { message });
+  } catch (error) {
+    console.error(error);
+    res.redirect("/");
+  }
+};
+
+// Update message
+export const updateMessage = async (req, res) => {
+  try {
+    const { author, message } = req.body;
+    await Message.findByIdAndUpdate(req.params.id, {
+      author,
+      message,
+      editedAt: new Date(),
+    });
+    res.redirect("/");
+  } catch (error) {
+    console.error(error);
+    res.redirect("/");
+  }
+};

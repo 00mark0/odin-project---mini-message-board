@@ -17,7 +17,14 @@
           Created at: <%= new Date(msg.createdAt).toLocaleString('en-US', {
           timeZone: 'Europe/Belgrade' }) %>
         </div>
+        <% if (msg.editedAt && msg.editedAt !== null) { %>
+        <div>
+          Edited at: <%= new Date(msg.editedAt).toLocaleString('en-US', {
+          timeZone: 'Europe/Belgrade' }) %>
+        </div>
+        <% } %>
         <a href="/messages/<%= msg._id %>">Open Message</a>
+        <a href="/messages/<%= msg._id %>/edit">Edit</a>
         <button onclick="deleteMessage('<%= msg._id %>')">Delete</button>
       </li>
       <% }) %>

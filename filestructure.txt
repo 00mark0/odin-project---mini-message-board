@@ -1,0 +1,23 @@
+|-- README.md
+|-- api
+    |-- .env
+    |-- .gitignore
+    |-- app.js
+    |-- controllers
+        |-- homeController.js
+        |-- messagesController.js
+    |-- models
+        |-- message.js
+    |-- package-lock.json
+    |-- package.json
+    |-- public
+        |-- css
+            |-- style.css
+    |-- routes
+        |-- index.js
+        |-- messages.js
+    |-- views
+        |-- edit.ejs
+        |-- index.ejs
+        |-- message.ejs
+        |-- new.ejs
